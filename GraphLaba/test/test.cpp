@@ -1,101 +1,90 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <stdlib.h>
-#define SIZE 6
-int main()
-{
-    int a[SIZE][SIZE] = 
-    {
-        {0,   9,  7, 0,   0, 14},
-        {9,   0, 10, 15,  0,  0},
-        {7,  10,  0, 11,  0,  2},
-        {0,  15, 11,  0,  6,  0},
-        {0,   0,  0,  6,  0,  9},
-        {14,  0,  2,  0,  9,  0}
-    }; // матрица связей
-    int d[SIZE]; // минимальное расстояние
-    int v[SIZE]; // посещенные вершины
-    int temp, minindex, min;
-    int begin_index = 0;
-    system("chcp 1251");
-    system("cls");
-    
-    // Вывод матрицы связей
-    for (int i = 0; i < SIZE; i++)
-    {
-        for (int j = 0; j < SIZE; j++)
-            printf("%5d ", a[i][j]);
-        printf("\n");
-    }
-    //Инициализация вершин и расстояний
-    for (int i = 0; i < SIZE; i++)
-    {
-        d[i] = 10000;
-        v[i] = 1;
-    }
-    d[begin_index] = 0;
-    // Шаг алгоритма
-    do {
-        minindex = 10000;
-        min = 10000;
-        for (int i = 0; i < SIZE; i++)
-        { // Если вершину ещё не обошли и вес меньше min
-            if ((v[i] == 1) && (d[i] < min))
-            { // Переприсваиваем значения
-                min = d[i];
-                minindex = i;
-            }
-        }
-        // Добавляем найденный минимальный вес
-        // к текущему весу вершины
-        // и сравниваем с текущим минимальным весом вершины
-        if (minindex != 10000)
-        {
-            for (int i = 0; i < SIZE; i++)
-            {
-                if (a[minindex][i] > 0)
-                {
-                    temp = min + a[minindex][i];
-                    if (temp < d[i])
-                    {
-                        d[i] = temp;
-                    }
-                }
-            }
-            v[minindex] = 0;
-        }
-    } while (minindex < 10000);
-    // Вывод кратчайших расстояний до вершин
-    printf("\nКратчайшие расстояния до вершин: \n");
-    for (int i = 0; i < SIZE; i++)
-        printf("%5d ", d[i]);
+﻿#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
 
-    // Восстановление пути
-    int ver[SIZE]; // массив посещенных вершин
-    int end = 4; // индекс конечной вершины = 5 - 1
-    ver[0] = end + 1; // начальный элемент - конечная вершина
-    int k = 1; // индекс предыдущей вершины
-    int weight = d[end]; // вес конечной вершины
+#define edge pair<int,int>
 
-    while (end != begin_index) // пока не дошли до начальной вершины
-    {
-        for (int i = 0; i < SIZE; i++) // просматриваем все вершины
-            if (a[i][end] != 0)   // если связь есть
-            {
-                int temp = weight - a[i][end]; // определяем вес пути из предыдущей вершины
-                if (temp == d[i]) // если вес совпал с рассчитанным
-                {                 // значит из этой вершины и был переход
-                    weight = temp; // сохраняем новый вес
-                    end = i;       // сохраняем предыдущую вершину
-                    ver[k] = i + 1; // и записываем ее в массив
-                    k++;
-                }
-            }
+class Graph {
+private:
+    vector<pair<int, edge>> G; // graph
+    vector<pair<int, edge>> T; // mst
+    int* parent;
+    int V; // number of vertices/nodes in graph
+public:
+    Graph(int V);
+    void AddWeightedEdge(int u, int v, int w);
+    int find_set(int i);
+    void union_set(int u, int v);
+    void kruskal();
+    void print();
+};
+Graph::Graph(int V) {
+    parent = new int[V];
+
+    //i 0 1 2 3 4 5
+    //parent[i] 0 1 2 3 4 5
+    for (int i = 0; i < V; i++)
+        parent[i] = i;
+
+    G.clear();
+    T.clear();
+}
+void Graph::AddWeightedEdge(int u, int v, int w) {
+    G.push_back(make_pair(w, edge(u, v)));
+}
+int Graph::find_set(int i) {
+    // If i is the parent of itself
+    if (i == parent[i])
+        return i;
+    else
+        // Else if i is not the parent of itself
+        // Then i is not the representative of his set,
+        // so we recursively call Find on its parent
+        return find_set(parent[i]);
+}
+
+void Graph::union_set(int u, int v) {
+    parent[u] = parent[v];
+}
+void Graph::kruskal() {
+    int i, uRep, vRep;
+    sort(G.begin(), G.end()); // increasing weight
+    for (i = 0; i < G.size(); i++) {
+        uRep = find_set(G[i].second.first);
+        vRep = find_set(G[i].second.second);
+        if (uRep != vRep) {
+            T.push_back(G[i]); // add to tree
+            union_set(uRep, vRep);
+        }
     }
-    // Вывод пути (начальная вершина оказалась в конце массива из k элементов)
-    printf("\nВывод кратчайшего пути\n");
-    for (int i = k - 1; i >= 0; i--)
-        printf("%3d ", ver[i]);
-    getchar(); getchar();
+}
+void Graph::print() {
+    cout << "Edge :" << " Weight" << endl;
+    for (int i = 0; i < T.size(); i++) {
+        cout << T[i].second.first << " - " << T[i].second.second << " : "
+            << T[i].first;
+        cout << endl;
+    }
+}
+int main() {
+    Graph g(6);
+    g.AddWeightedEdge(0, 1, 4);
+    g.AddWeightedEdge(0, 2, 4);
+    g.AddWeightedEdge(1, 2, 2);
+    g.AddWeightedEdge(1, 0, 4);
+    g.AddWeightedEdge(2, 0, 4);
+    g.AddWeightedEdge(2, 1, 2);
+    g.AddWeightedEdge(2, 3, 3);
+    g.AddWeightedEdge(2, 5, 2);
+    g.AddWeightedEdge(2, 4, 4);
+    g.AddWeightedEdge(3, 2, 3);
+    g.AddWeightedEdge(3, 4, 3);
+    g.AddWeightedEdge(4, 2, 4);
+    g.AddWeightedEdge(4, 3, 3);
+    g.AddWeightedEdge(5, 2, 2);
+    g.AddWeightedEdge(5, 4, 3);
+    g.kruskal();
+    g.print();
     return 0;
 }
