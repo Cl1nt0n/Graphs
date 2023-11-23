@@ -1,0 +1,4 @@
+﻿  final.cpp
+E:\Solutions\GraphLaba\final\final.cpp(330,9): warning C4101: min: неиспользованная локальная переменная
+E:\Solutions\GraphLaba\final\final.cpp(329,9): warning C4101: i: неиспользованная локальная переменная
+  final.vcxproj -> E:\Solutions\GraphLaba\x64\Debug\final.exe
