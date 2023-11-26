@@ -54,10 +54,9 @@ void dijkstra_algorithm(int matrix[][SIZE], int* shortest, int* previous, int pe
     cout << "Промежуточные результаты: " << endl;
     for (int i = 0; i < SIZE; i++) {
         min = -1;
-        for (int j = 0; j < SIZE; j++) {
+        for (int j = 0; j < SIZE; j++)
             if (*(passed_peaks + j) == 0 && ((min == -1) || (*(shortest + j) < *(shortest + min))))
                 min = j;
-        }
         *(passed_peaks + min) = 1;
 
         for (int i = 0; i < SIZE; i++)
@@ -136,15 +135,18 @@ void bellman_ford_algorithm(int matrix[][SIZE], int* shortest, int* previous, in
     {
         //вызываем релакс для каждого ребра size-1 раз
         for (int j = 0; j < SIZE; j++)
-            for (int i = 0; i < SIZE; i++)
-                if (*(*(matrix + i) + j) != NO_WAY)
-                    relax(matrix, shortest, previous, i, j);
+            for (int k = 0; k < SIZE; k++)
+                if (*(*(matrix + j) + k) != NO_WAY)
+                    relax(matrix, shortest, previous, j, k);
         //печать shortest и pred
         print_shortest(peak, shortest, previous);
     }
 
     //Процедура поиска отрицательного цикла
-    NegativeCycle(matrix, shortest, previous);
+    bool isCycle = negative_cycle(matrix, shortest, previous);
+
+    if (isCycle)
+        return;
 
     for (int i = 0; i < SIZE; i++)
     {
@@ -152,9 +154,9 @@ void bellman_ford_algorithm(int matrix[][SIZE], int* shortest, int* previous, in
 
         while (x != -1)
         {
-            cout << x << " <= "; //вывод верши
+            cout << x+1 << " <= "; 
             x = *(previous + x);
-        }//while
+        }
 
         cout << endl;
     }
@@ -173,8 +175,8 @@ void floyd_warshall_algorithm(int matrix[][SIZE], int shortest_floyd_warshall[][
                 previous_floyd_warshall[i][j] = i;
             else
                 previous_floyd_warshall[i][j] = -1;
-        }//for j
-    }//for i
+        }
+    }
 
     cout << "Промежуточные результаты:" << endl;
 
@@ -203,7 +205,7 @@ void floyd_warshall_algorithm(int matrix[][SIZE], int shortest_floyd_warshall[][
         cout << "Предыдущие вершины: " << endl;
         print_matrix(previous_floyd_warshall);
         cout << endl;
-    }//for k
+    }
 
     //Печать путей до вершин для каждой начальной вершины
     for (int j = 0; j < SIZE; j++)
@@ -226,10 +228,10 @@ void floyd_warshall_algorithm(int matrix[][SIZE], int shortest_floyd_warshall[][
 }
 
 //Функция поиска отрицательного цикла
-void NegativeCycle(int matrix[][SIZE], int* shortest, int* previous)
+bool negative_cycle(int matrix[][SIZE], int* shortest, int* previous)
 {
     //Инициализация переменных
-    int CycleStart = -1;//Флаг нахождения отрицательного цикла и индекс его начала
+    int cycle_start = -1;//Флаг нахождения отрицательного цикла и индекс его начала
 
     for (int i = 0; i < SIZE; i++)
     {
@@ -238,31 +240,36 @@ void NegativeCycle(int matrix[][SIZE], int* shortest, int* previous)
             //Если суммарный путь < 0
             if (matrix[i][j] != NO_WAY && (matrix[i][j] + shortest[i] < shortest[j]) && shortest[j] != NO_WAY && shortest[i] != NO_WAY)
             {
-                CycleStart = i; //запоминаем начало отрицательного цикла
+                cycle_start = i; //запоминаем начало отрицательного цикла
                 break;
             }
         }
 
-        if (CycleStart != -1) 
+        if (cycle_start != -1) 
             break; //если нашли отрицательный цикл
     }
 
     //Не нашли отрицательный цикл
-    if (CycleStart == -1)
+    if (cycle_start == -1)
     {
         cout << "\nОтрицательного цикла нет" << endl;
     }
     else//Иначе выводим вершины самого сильного отрицательного цикла
     {
-        cout << "\nНайден отрицательный цикл: " << endl;
-        int x = CycleStart;
+        cout << "\nНайден отрицательный цикл: " << endl << "<= ";
+        int x = cycle_start;
         do 
         {
-            cout << x << " => "; //вывод вершин цикла
+            cout << x+1 << " <= "; //вывод вершин цикла
             x = *(previous + x);
-        } while (x != CycleStart); //пока не вернулись в вершину начала цикла
+        } while (x != cycle_start); //пока не вернулись в вершину начала цикла
+        cout << endl;
+
+        return true;
     }
     cout << endl << endl;
+
+    return false;
 }
 
 void prim_algorithm(int matrix[][SIZE])
@@ -332,10 +339,9 @@ void kruskal_algorithm(int matrix[][SIZE])
 
     int weight = 0; //вес минимального остовного дерева
 
+    //Каждая вершина изначально принадлежит своему множеству
     for (int i = 0; i < SIZE; i++)
-    {   //Каждая вершина изначально принадлежит своему множеству
-        flags[i] = i;
-    }//for i
+        *(flags + i) = i;
 
     //цикл по всем рёбрам
     for (int i = 0; i < k; i++)
@@ -363,7 +369,6 @@ void kruskal_algorithm(int matrix[][SIZE])
     //Очищение выделенной памяти
     delete[] flags;
     delete[] edges;
-
 }
 
 void sort(Edge* array, int size)

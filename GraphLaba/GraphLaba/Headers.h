@@ -1,46 +1,74 @@
 #include <iostream>
 #include <list>
 
-#define SIZE 6
+#define SIZE 10
 #define NO_WAY INT_MAX
 
+//ребро
 struct Edge
 {
-	int weight, from, to; //вес ребра и его вершины
+	int weight; //вес ребра
+	int	from; //откуда
+	int to; //куда
 };
 
 using namespace std;
 
-void dijkstra_algorithm(int matrix[][SIZE], 
-	int* shortest, 
-	int* previous, 
-	int peak
+//алгоритм Дейкстры
+void dijkstra_algorithm(int matrix[][SIZE], //матрица смежности
+	int* shortest, //массив с кратчайшими расстояниями
+	int* previous, //массив с предыдущими вершинами
+	int peak //вершина
 );
 
-void bellman_ford_algorithm(int matrix[][SIZE],
-	int* shortest,
-	int* previous,
-	int peak
+//алгоритм Беллмана-Форда
+void bellman_ford_algorithm(int matrix[][SIZE], //матрица смежности
+	int* shortest, //массив с кратчайшими расстояниями
+	int* previous, //массив с предыдущими вершинами
+	int peak //вершина
 );
 
-void floyd_warshall_algorithm(int matrix[][SIZE],
-	int shortest_floyd_warshall[][SIZE],
-	int previous_floyd_warshall[][SIZE]
+//алгоритм Флойда-Уоршелла
+void floyd_warshall_algorithm(int matrix[][SIZE], //матрица смежности
+	int shortest_floyd_warshall[][SIZE], //матрица с кратчайшими расстояниями
+	int previous_floyd_warshall[][SIZE] //матрица с предыдущими вершинами
 );
 
-void prim_algorithm(int matrix[][SIZE]
+//алгоритм Прима
+void prim_algorithm(int matrix[][SIZE] //матрица смежности
 );
 
-void kruskal_algorithm(int matrix[][SIZE]);
+//алгоритм Краскала
+void kruskal_algorithm(int matrix[][SIZE] //матрица смежности
+);
 
-void print_matrix(int matrix[][SIZE]);
+//печать матрицы
+void print_matrix(int matrix[][SIZE] //матрица смежности
+);
 
-void print_shortest(int peak, int* shortest, int* previous);
+//печать 
+void print_shortest(int peak, //вершина
+	int* shortest, //массив с кратчайшими расстояниями
+	int* previous  //массив с предыдущими вершинами
+);
 
-void relax(int matrix[][SIZE], int* shortest, int* previous, int a, int b);
+//функция relax
+void relax(int matrix[][SIZE], //матрица смежности
+	int* shortest, //массив с кратчайшими расстояниями
+	int* previous, //массив с предыдущими вершинами
+	int a, //индекс первой вершины
+	int b //индекс второй вершины
+);
 
-void NegativeCycle(int matrix[][SIZE], int* shortest, int* previous);
+//функция посика отрицательного цикла
+bool negative_cycle(int matrix[][SIZE], //матрица смежности
+	int* shortest, //массив с кратчайшими расстояниями
+	int* previous  //массив с предыдущими вершинами
+);
 
-void sort(Edge* array, int size);
+//сортировка
+void sort(Edge* array, //массив ребер
+	int size 
+);
 
 
