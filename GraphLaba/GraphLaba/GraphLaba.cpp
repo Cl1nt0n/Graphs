@@ -17,55 +17,55 @@ int main()
 	//тип матрицы 
 	int matrix_number;
 
-	//Ориентированный граф без отрицательных весов
-	matrix_number = 1;
-	int adjacency_matrix[SIZE][SIZE] =
-	{
-		{NO_WAY, 10,     NO_WAY, NO_WAY, 8,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, 3,      7,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, 3,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 3     },
-		{NO_WAY, NO_WAY, 6,      NO_WAY, NO_WAY, NO_WAY, 20,     5,      NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 9,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 18,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 14,     NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 16,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-	};
+	////Ориентированный граф без отрицательных весов
+	//matrix_number = 1;
+	//int adjacency_matrix[SIZE][SIZE] =
+	//{
+	//	{NO_WAY, 10,     NO_WAY, NO_WAY, 8,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, 3,      7,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, 3,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 3     },
+	//	{NO_WAY, NO_WAY, 6,      NO_WAY, NO_WAY, NO_WAY, 20,     5,      NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 9,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 18,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 14,     NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 16,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//};
 
-	//Ориентированный граф отрицательными весами без цикла
-	matrix_number = 2;
-	int adjacency_matrix[SIZE][SIZE] =
-	{
-		{NO_WAY, 10,     NO_WAY, NO_WAY, 8,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, 3,      7,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, 3,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 3     },
-		{NO_WAY, NO_WAY, 6,      NO_WAY, NO_WAY, NO_WAY, 20,     5,      NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 9,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, -18,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 14,     NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 16,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-	};
+	////Ориентированный граф отрицательными весами без цикла
+	//matrix_number = 2;
+	//int adjacency_matrix[SIZE][SIZE] =
+	//{
+	//	{NO_WAY, 10,     NO_WAY, NO_WAY, 8,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, 3,      7,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, 3,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 3     },
+	//	{NO_WAY, NO_WAY, 6,      NO_WAY, NO_WAY, NO_WAY, 20,     5,      NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 9,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, -18,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 14,     NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 16,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//};
 
-	//Ориентированный граф с отрицательными весами с циклом
-	matrix_number = 3;
-	int adjacency_matrix[SIZE][SIZE] =
-	{
-		{NO_WAY, 10,     NO_WAY, NO_WAY, 8,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, 3,      7,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, 3,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, -3     },
-		{NO_WAY, NO_WAY, 6,      NO_WAY, NO_WAY, NO_WAY, 20,     5,      NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 9,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 18,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 14,     NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, -16,    NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-	};
+	////Ориентированный граф с отрицательными весами с циклом
+	//matrix_number = 3;
+	//int adjacency_matrix[SIZE][SIZE] =
+	//{
+	//	{NO_WAY, 10,     NO_WAY, NO_WAY, 8,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, 3,      7,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, 3,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, -3     },
+	//	{NO_WAY, NO_WAY, 6,      NO_WAY, NO_WAY, NO_WAY, 20,     5,      NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 9,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 18,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 14,     NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, -16,    NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//};
 
-	//Нериентированный граф без отрицательных весов
+	//Неориентированный граф без отрицательных весов
 	matrix_number = 4;
 	int adjacency_matrix[SIZE][SIZE] =
 	{
@@ -81,21 +81,21 @@ int main()
 		{NO_WAY, NO_WAY, NO_WAY, 3,      NO_WAY, 16,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
 	};
 
-	//Нериентированный граф без отрицательных весов
-	matrix_number = 5;
-	int adjacency_matrix[SIZE][SIZE] =
-	{
-		{NO_WAY, -10,     NO_WAY, NO_WAY, 8,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{10,     NO_WAY, 3,      7,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, 3,      NO_WAY, 3,      6,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, 7,      3,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 3     },
-		{8,      NO_WAY, 6,      NO_WAY, NO_WAY, 9,      20,     5,      NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 9,      NO_WAY, 18,     NO_WAY, NO_WAY, 16    },
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 20,     18,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 5,      NO_WAY, NO_WAY, NO_WAY, 14,     NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 14,     NO_WAY, NO_WAY},
-		{NO_WAY, NO_WAY, NO_WAY, 3,      NO_WAY, -16,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
-	};
+	////Неориентированный граф с отрицательными весами
+	//matrix_number = 5;
+	//int adjacency_matrix[SIZE][SIZE] =
+	//{
+	//	{NO_WAY, -10,     NO_WAY, NO_WAY, 8,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{10,     NO_WAY, 3,      7,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, 3,      NO_WAY, 3,      6,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, 7,      3,      NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 3     },
+	//	{8,      NO_WAY, 6,      NO_WAY, NO_WAY, 9,      20,     5,      NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 9,      NO_WAY, 18,     NO_WAY, NO_WAY, 16    },
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 20,     18,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, 5,      NO_WAY, NO_WAY, NO_WAY, 14,     NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, NO_WAY, 14,     NO_WAY, NO_WAY},
+	//	{NO_WAY, NO_WAY, NO_WAY, 3,      NO_WAY, -16,     NO_WAY, NO_WAY, NO_WAY, NO_WAY},
+	//};
 
 	int result_array[SIZE][SIZE];
 	//Массив минимальных расстояний до вершин
@@ -155,7 +155,7 @@ int main()
 			print_shortest(peak, shortest, previous);
 			break;
 		case 3: //алгоритм Флойда-Уоршелла
-			if (true)
+			if (false)
 			{
 				cout << "Неправильная матрица смежности." << endl;
 				break;
@@ -167,16 +167,16 @@ int main()
 			print_matrix(previous_floyd_warshall);
 			break;
 		case 4: //алгоритм Прима
-			if (matrix_number == 4 || matrix_number == 5 || true)
+			if (!(matrix_number == 4 || matrix_number == 5))
 			{
-				cout << "\nПрим: \n";
-				prim_algorithm(adjacency_matrix);
+				cout << "Неправильная матрица смежности." << endl;
 				break;
 			}
-			cout << "Неправильная матрица смежности." << endl;
+			cout << "Прим: " << endl;
+			prim_algorithm(adjacency_matrix);
 			break;
-		case 5: //алгоритм Крускалла
-			if (!(matrix_number == 4 || matrix_number == 5) || true)
+		case 5: //алгоритм Краскалла
+			if (!(matrix_number == 4 || matrix_number == 5))
 			{
 				cout << "Неправильная матрица смежности." << endl;
 				break;

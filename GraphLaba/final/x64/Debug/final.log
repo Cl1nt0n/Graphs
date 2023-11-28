@@ -1,4 +1,4 @@
 ﻿  final.cpp
-E:\Solutions\GraphLaba\final\final.cpp(333,6): warning C4101: min: неиспользованная локальная переменная
-E:\Solutions\GraphLaba\final\final.cpp(332,6): warning C4101: i: неиспользованная локальная переменная
-  final.vcxproj -> E:\Solutions\GraphLaba\x64\Debug\final.exe
+C:\Users\igorc\Documents\GitHub\Graphs\GraphLaba\final\final.cpp(342,6): warning C4101: min: неиспользованная локальная переменная
+C:\Users\igorc\Documents\GitHub\Graphs\GraphLaba\final\final.cpp(341,6): warning C4101: i: неиспользованная локальная переменная
+  final.vcxproj -> C:\Users\igorc\Documents\GitHub\Graphs\GraphLaba\x64\Debug\final.exe

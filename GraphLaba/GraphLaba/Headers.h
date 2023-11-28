@@ -66,9 +66,10 @@ bool negative_cycle(int matrix[][SIZE], //матрица смежности
 	int* previous  //массив с предыдущими вершинами
 );
 
-//сортировка
+//быстрая сортировка по полю weight
 void sort(Edge* array, //массив ребер
-	int size 
+	int start,
+	int end 
 );
 
 

@@ -127,23 +127,23 @@ int main()
 	//                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, -18, NO_PATH, NO_PATH, NO_PATH} };
 	//-----------------------------------------------
 	//
-	//Матрица Смежности с отрицательными весами рёбер с циклом
-	//-----------------------------------------------
-	cout << "\n№3" << endl;
-	cout << "Матрица Смежности с отрицательными весами рёбер с циклом" << endl;
-	int Matr_smezh[size][size] = { {NO_PATH, 4, NO_PATH, 8, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 14, NO_PATH},
-	                                {NO_PATH, NO_PATH, 13, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 7, NO_PATH, NO_PATH},
-	                                {NO_PATH, NO_PATH, NO_PATH, 24, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 6},
-	                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, -18, NO_PATH, NO_PATH, NO_PATH, NO_PATH},
-	                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 20, NO_PATH},
-	                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, -15, 5, NO_PATH, NO_PATH},
-	                                {NO_PATH, NO_PATH, -21, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH},
-	                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, 9, NO_PATH, NO_PATH, NO_PATH, 6, NO_PATH},
-	                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 10},
-	                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, -18, NO_PATH, NO_PATH, NO_PATH} 
-	};
+	////Матрица Смежности с отрицательными весами рёбер с циклом
+	////-----------------------------------------------
+	//cout << "\n№3" << endl;
+	//cout << "Матрица Смежности с отрицательными весами рёбер с циклом" << endl;
+	//int Matr_smezh[size][size] = { {NO_PATH, 4, NO_PATH, 8, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 14, NO_PATH},
+	//                                {NO_PATH, NO_PATH, 13, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 7, NO_PATH, NO_PATH},
+	//                                {NO_PATH, NO_PATH, NO_PATH, 24, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 6},
+	//                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, -18, NO_PATH, NO_PATH, NO_PATH, NO_PATH},
+	//                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 20, NO_PATH},
+	//                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, -15, 5, NO_PATH, NO_PATH},
+	//                                {NO_PATH, NO_PATH, -21, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH},
+	//                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, 9, NO_PATH, NO_PATH, NO_PATH, 6, NO_PATH},
+	//                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 10},
+	//                                {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, -18, NO_PATH, NO_PATH, NO_PATH} 
+	//};
 
-	-----------------------------------------------
+	////-----------------------------------------------
 
 	//Неориентированный граф с отрицательными ребрами
 	//-----------------------------------------------
@@ -164,23 +164,26 @@ int main()
 									   // 
 									   // /Неориентированный граф без отрицательных ребрер
 									   //-----------------------------------------------
-		//cout << "\n№5" << endl;
-		//matrix_number = 5;
-		//cout << "Неориентированный граф без отрицательных ребрер" << endl;
-		//int Matr_smezh[size][size] = { {NO_PATH, 4, NO_PATH, 8, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 14, NO_PATH},
-		//                               {4, NO_PATH, 13, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 7, NO_PATH, NO_PATH},
-		//                               {NO_PATH, 13, NO_PATH, 24, NO_PATH, NO_PATH, 21, NO_PATH, NO_PATH, 6},
-		//                               {8, NO_PATH, 24, NO_PATH, NO_PATH, 18, NO_PATH, NO_PATH, NO_PATH, NO_PATH},
-		//                               {NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 9, 20, NO_PATH},
-		//                               {NO_PATH, NO_PATH, NO_PATH, 18, NO_PATH, NO_PATH, 15, 5, NO_PATH, NO_PATH},
-		//                               {NO_PATH, NO_PATH, 21, NO_PATH, NO_PATH, 15, NO_PATH, NO_PATH, NO_PATH, 18},
-		//                               {NO_PATH, 7, NO_PATH, NO_PATH, 9, 5, NO_PATH, NO_PATH, 6, NO_PATH},
-		//                               {14, NO_PATH, NO_PATH, NO_PATH, 20, NO_PATH, NO_PATH, 6, NO_PATH, 10},
-		//                               {NO_PATH, NO_PATH, 6, NO_PATH, NO_PATH, NO_PATH, 18, NO_PATH, 10, NO_PATH} };
-		//-----------------------------------------------
-						//-----------------------------------------------------//
+	cout << "\n№5" << endl;
+	matrix_number = 5;
+	cout << "Неориентированный граф без отрицательных ребрер" << endl;
+	int Matr_smezh[size][size] =
+	{
+	{NO_PATH, 10,     NO_PATH, NO_PATH, 8,      NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH},
+	{10,     NO_PATH, 3,      7,      NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH},
+	{NO_PATH, 3,      NO_PATH, 3,      6,      NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH},
+	{NO_PATH, 7,      3,      NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 3     },
+	{8,      NO_PATH, 6,      NO_PATH, NO_PATH, 9,      20,     5,      NO_PATH, NO_PATH},
+	{NO_PATH, NO_PATH, NO_PATH, NO_PATH, 9,      NO_PATH, 18,     NO_PATH, NO_PATH, 16    },
+	{NO_PATH, NO_PATH, NO_PATH, NO_PATH, 20,     18,     NO_PATH, NO_PATH, NO_PATH, NO_PATH},
+	{NO_PATH, NO_PATH, NO_PATH, NO_PATH, 5,      NO_PATH, NO_PATH, NO_PATH, 14,     NO_PATH},
+	{NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, NO_PATH, 14,     NO_PATH, NO_PATH},
+	{NO_PATH, NO_PATH, NO_PATH, 3,      NO_PATH, 16,     NO_PATH, NO_PATH, NO_PATH, NO_PATH},
+	};
+	//-----------------------------------------------
+					//-----------------------------------------------------//
 
-			//Заносим матрицу смежности в динамическую память
+		//Заносим матрицу смежности в динамическую память
 	int** Matr_smezh_ptr = new int* [size];
 	for (int i = 0; i < size; i++) //матрица смежности в динамической памяти
 	{
