@@ -39,17 +39,11 @@ void dijkstra_algorithm(int matrix[][SIZE], int* shortest, int* previous, int pe
 	//заполн€ем shortest и previous
 	for (int i = 0; i < SIZE; i++)
 	{
-		if (i != peak)
-		{
-			*(shortest + i) = NO_WAY;
-			*(previous + i) = -1;
-		}
-		else
-		{
-			*(shortest + i) = 0;
-			*(previous + i) = -1;
-		}
+		*(shortest + i) = NO_WAY;
+		*(previous + i) = -1;
 	}
+	*(shortest) = 0;
+	*(previous) = -1;
 
 	cout << "ѕромежуточные результаты: " << endl;
 	for (int i = 0; i < SIZE; i++) {
@@ -59,8 +53,8 @@ void dijkstra_algorithm(int matrix[][SIZE], int* shortest, int* previous, int pe
 				min = j;
 		*(passed_peaks + min) = 1;
 
-		for (int i = 0; i < SIZE; i++)
-			relax(matrix, shortest, previous, min, i);
+		for (int j = 0; j < SIZE; j++)
+			relax(matrix, shortest, previous, min, j);
 
 		print_shortest(peak, shortest, previous);
 	}
@@ -117,18 +111,11 @@ void bellman_ford_algorithm(int matrix[][SIZE], int* shortest, int* previous, in
 	//заполн€ем shortest и pred
 	for (int i = 0; i < SIZE; i++)
 	{
-		//отделить ноль от остальных вершин
-		if (i != peak)
-		{
-			*(shortest + i) = NO_WAY;
-			*(previous + i) = -1;
-		}
-		else
-		{
-			*(shortest + i) = 0;
-			*(previous + i) = -1;
-		}
+		*(shortest + i) = NO_WAY;
+		*(previous + i) = -1;
 	}
+	*(shortest) = 0;
+	*(previous) = -1;
 
 	cout << "ѕромежуточные результаты:" << endl;
 	for (int i = 0; i < SIZE - 1; i++)
@@ -168,9 +155,9 @@ void floyd_warshall_algorithm(int matrix[][SIZE], int shortest_floyd_warshall[][
 	{
 		for (int j = 0; j < SIZE; j++)
 		{
-			//копируем матрицу смежности в shortestFU
+			//копируем матрицу смежности в shortest floyd warshall
 			shortest_floyd_warshall[i][j] = matrix[i][j];
-			//заполн€ем матрицу predFU
+			//заполн€ем матрицу previous floyd warshall
 			if (matrix[i][j] != NO_WAY && i != j)
 				previous_floyd_warshall[i][j] = i;
 			else
@@ -178,6 +165,7 @@ void floyd_warshall_algorithm(int matrix[][SIZE], int shortest_floyd_warshall[][
 		}
 	}
 
+	//bool isCycle;
 	cout << "ѕромежуточные результаты:" << endl;
 
 	//поиск кратчайшего пути из i в j через k
@@ -207,6 +195,11 @@ void floyd_warshall_algorithm(int matrix[][SIZE], int shortest_floyd_warshall[][
 		cout << endl;
 	}
 
+	/*isCycle = negative_cycle(matrix, shortest_floyd_warshall[k], previous_floyd_warshall[k]);
+
+	if (isCycle)
+		return;*/
+
 	//ѕечать путей до вершин дл€ каждой начальной вершины
 	for (int j = 0; j < SIZE; j++)
 	{
@@ -217,9 +210,9 @@ void floyd_warshall_algorithm(int matrix[][SIZE], int shortest_floyd_warshall[][
 
 			while (x != -1)
 			{
-				cout << x << " <- "; //вывод верши
+				cout << x + 1 << " <= "; 
 				x = previous_floyd_warshall[j][x];
-			}//while
+			}
 
 			cout << endl;
 		}
@@ -298,10 +291,10 @@ void prim_algorithm(int matrix[][SIZE])
 					if (!passed_peaks[k] && matrix[j][k] != NO_WAY) //если вершина не содержитс€ в остовном дереве и в нее есть путь
 					{
 						if (min > matrix[j][k])
-						{					
+						{
 							min = matrix[j][k];
-							from = j; 
-							to = k; 
+							from = j;
+							to = k;
 						}
 					}
 				}
